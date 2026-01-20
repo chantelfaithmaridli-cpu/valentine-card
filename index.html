@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Valentine Card</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* -------- Global Page Styling -------- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: pink;
+            color: red;
+
+            /* Flexbox centers content horizontally and vertically */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+
+            text-align: center;
+        }
+
+        /* -------- Card Container -------- */
+        .container {
+            background: rgba(255, 255, 255, 0.35);
+            padding: 25px;
+            border-radius: 20px;
+            max-width: 460px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        /* -------- Scrolling Text -------- */
+        /* Marquee is deprecated but kept for simplicity */
+        marquee {
+            font-size: 1.6em;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        /* -------- Image Styling -------- */
+        .romantic {
+            width: 300px;
+            border-radius: 16px;
+            margin: 12px 0;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .romantic:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        /* -------- Buttons -------- */
+        button {
+            background-color: white;
+            color: red;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1em;
+            margin: 10px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        /* -------- Heart Animation -------- */
+        .heart {
+            font-size: 2em;
+            animation: pulse 1s ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.4); }
+            100% { transform: scale(1); }
+        }
+
+        /* -------- Response Message -------- */
+        #response {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <marquee behavior="alternate">
+            💖 Will you be my Valentine? 💖
+        </marquee>
+
+        <h2>Interactive Valentine Card</h2>
+
+        <!-- Option C: Placeholder image -->
+        <img src="valentine-placeholder.jpg" class="romantic" alt="Valentine Card Example">
+
+        <p>
+            This project demonstrates a simple Valentine card using HTML, CSS, and JavaScript.
+            Users can click the button to interact with it.
+        </p>
+
+        <!-- Option C: Optional audio (commented out for ethical reasons) -->
+        <!--
+        <audio id="bgMusic" src="audio-placeholder.mp3" controls></audio>
+        -->
+
+        <!-- Buttons -->
+        <div>
+            <button id="yesBtn" onclick="yesClicked()">YES 🤍</button>
+            <button onclick="noClicked()">NO 🤍</button>
+        </div>
+
+        <!-- Response Message -->
+        <div id="response">
+            💖 Thank you for clicking! This interaction is handled using JavaScript.
+        </div>
+
+    </div>
+
+    <script>
+        // Function triggered when YES button is clicked
+        function yesClicked() {
+            const yesBtn = document.getElementById("yesBtn");
+
+            // Change button content to heart emoji
+            yesBtn.innerHTML = "💖";
+
+            // Add pulse animation
+            yesBtn.classList.add("heart");
+
+            // Show hidden response message
+            document.getElementById("response").style.display = "block";
+        }
+
+        // Function triggered when NO button is clicked
+        function noClicked() {
+            alert("Try clicking YES to see the interaction 😊");
+        }
+    </script>
+
+</body>
+</html>
